@@ -61,6 +61,7 @@ export class Select {
     }
 
     select(id) {
+        debugger
         this.$el.querySelectorAll('.select__item').forEach(item => item.classList.remove('selected'))
 
         this.selectedId = id
@@ -71,6 +72,7 @@ export class Select {
         this.close()
 
         this.options?.onSelect(this.selected)
+        console.trace()
     }
 
     get selected() {

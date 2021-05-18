@@ -196,6 +196,7 @@ var Select = /*#__PURE__*/function () {
     value: function select(id) {
       var _this$options;
 
+      debugger;
       this.$el.querySelectorAll('.select__item').forEach(function (item) {
         return item.classList.remove('selected');
       });
@@ -204,6 +205,7 @@ var Select = /*#__PURE__*/function () {
       this.$el.querySelector("[data-id=\"".concat(id, "\"]")).classList.add('selected');
       this.close();
       (_this$options = this.options) === null || _this$options === void 0 ? void 0 : _this$options.onSelect(this.selected);
+      console.trace();
     }
   }, {
     key: "selected",
@@ -353,33 +355,37 @@ require("./style.scss");
 var _require = require('./plugins/select'),
     Select = _require.Select;
 
-var select = new Select('#select', {
-  placeholder: 'Choose one from the following',
-  data: [{
-    id: '1',
-    value: 'Football'
-  }, {
-    id: '2',
-    value: 'Racing'
-  }, {
-    id: '3',
-    value: 'Volleyball'
-  }, {
-    id: '4',
-    value: 'Hockey'
-  }, {
-    id: '5',
-    value: 'Basketball'
-  }, {
-    id: '6',
-    value: 'Table tennis'
-  }],
-  defaultItemId: '2',
-  onSelect: function onSelect(item) {
-    console.log('Do something when selected item:', item);
-  }
-});
-window.s = select;
+document.addEventListener('DOMContentLoaded', main);
+
+function main() {
+  var select = new Select('#select', {
+    placeholder: 'Choose one from the following',
+    data: [{
+      id: '1',
+      value: 'Football'
+    }, {
+      id: '2',
+      value: 'Racing'
+    }, {
+      id: '3',
+      value: 'Volleyball'
+    }, {
+      id: '4',
+      value: 'Hockey'
+    }, {
+      id: '5',
+      value: 'Basketball'
+    }, {
+      id: '6',
+      value: 'Table tennis'
+    }],
+    defaultItemId: '2',
+    onSelect: function onSelect(item) {
+      console.log('Do something when selected item:', item);
+    }
+  });
+  window.s = select;
+}
 },{"./plugins/select":"plugins/select.js","./style.scss":"style.scss"}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
