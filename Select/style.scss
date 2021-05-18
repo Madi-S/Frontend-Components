@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro&display=swap');
+
+html {
+    font-family: 'Farro', sans-serif;
+}
+
+.select-container, h3 {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.wrap {
+    width: 500px;
+}
+
+$height: 46px;
+
+.select {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+
+    &.open {
+        .select__dropdown {
+            display: block;
+        }
+
+        .select__input {
+            border-bottom: none;
+        }
+
+        .select__backdrop {
+            display: block;
+        }
+    }
+
+    &__input {
+        border: 1px solid #c1c1c1;
+        border-radius: 7px;
+        height: $height;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        cursor: pointer;
+        justify-content: space-between;
+    }
+
+    &__dropdown {
+        display: none;
+        border: 1px solid #c1c1c1;
+        border-radius: 7px;
+        position: absolute;
+        top: $height;
+        left: 0;
+        right: 0;
+        max-height: 230px;
+        overflow-y: auto;
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, .3)
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        padding: .7rem;
+        border-bottom: 1px dotted #ccc;
+
+        &:hover {
+            background-color: #eee;
+            cursor: pointer;
+            transition: .25s background-color ease-in-out;
+        }
+
+        &.selected {
+            background-color: #fff3e8;
+        }
+    }
+
+    &__backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: -1;
+        display: none;
+    }
+}

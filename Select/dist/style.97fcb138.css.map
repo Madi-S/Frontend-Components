@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA","file":"style.97fcb138.css","sourceRoot":"..","sourcesContent":[".selector-container, h3 {\r\n    margin-top: 250px;\r\n    margin-left: 50%;\r\n    margin-right: 50%;\r\n}"]}
