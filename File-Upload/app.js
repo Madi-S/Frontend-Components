@@ -1,3 +1,6 @@
-import './upload.js'
+import {upload} from './upload.js'
 
-console.log('App is running')
+upload('#file', {
+    multi: true,
+    acceptExtensions: ['png', 'jpeg', 'jpg']
+})

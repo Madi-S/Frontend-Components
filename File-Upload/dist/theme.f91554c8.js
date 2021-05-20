@@ -117,77 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"upload.js":[function(require,module,exports) {
-"use strict";
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.upload = upload;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-function upload(selector, options) {
-  var input = document.querySelector(selector);
-  var preview = document.createElement('div');
-  preview.classList.add('preview');
-  var openBtn = document.createElement('button');
-  openBtn.classList.add('btn');
-  openBtn.textContent = 'Open';
-  options.multi ? input.setAttribute('multiple', true) : null;
-  options.acceptExtensions && Array.isArray(options.acceptExtensions) ? input.setAttribute('accept', options.acceptExtensions.map(function (ext) {
-    return '.' + ext;
-  }).join(',')) : null;
-  input.insertAdjacentElement('afterend', preview);
-  input.insertAdjacentElement('afterend', openBtn);
+  return bundleURL;
+}
 
-  var triggerInput = function triggerInput() {
-    return input.click();
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
   };
 
-  var changeHandler = function changeHandler(event) {
-    var files = event.target.files;
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
 
-    if (!files.length) {
-      return;
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
 
-    preview.innerHTML = '';
-    files = Array.from(files);
-    files.forEach(function (file) {
-      if (!file.type.match('image')) {
-        return;
-      }
-
-      var reader = new FileReader();
-
-      reader.onload = function (ev) {
-        var src = ev.target.result;
-        preview.insertAdjacentHTML('afterbegin', "\n                <div class=\"preview-img\">\n                    <div class=\"preview-remove\">&times;</div>\n                    <img src=\"".concat(src, "\" alt=\"").concat(file.name, "\" />\n                    <div class=\"preview-info\">\n                        <span>").concat(file.name, "</span>\n                        ").concat(bytesToSize(file.size), "\n                    </div>\n                </div>\n                "));
-      };
-
-      reader.readAsDataURL(file);
-    });
-  }; // Triggers on button click
-
-
-  openBtn.addEventListener('click', triggerInput); // Triggers, when file/files are chosen
-
-  input.addEventListener('change', changeHandler);
+    cssTimeout = null;
+  }, 50);
 }
 
-function bytesToSize(bytes) {
-  var sizeKb = Number(bytes) / 1024;
-  return sizeKb > 1024 ? (sizeKb / 1024).toFixed(2) + ' Mb' : sizeKb.toFixed(2) + ' Kb';
-}
-},{}],"app.js":[function(require,module,exports) {
-"use strict";
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"theme.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-var _upload = require("./upload.js");
-
-(0, _upload.upload)('#file', {
-  multi: true,
-  acceptExtensions: ['png', 'jpeg', 'jpg']
-});
-},{"./upload.js":"upload.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -391,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=/app.c328ef1a.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/theme.f91554c8.js.map
