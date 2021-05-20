@@ -1,0 +1,81 @@
+.my-section {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* flex-start, flex-end */
+}
+
+h1, h2 {
+    color: darkred;
+    background-color: tomato;
+    /*text-align: center;*/
+    /* By default display: block */
+    display: inline-block;
+}
+
+h1 {
+    border: 2px dashed black;
+}
+
+h2 {
+    border: 2px solid black;
+
+}
+
+.content-text {
+    margin: 50px 120px 100px 30px;
+    /* margin: top, right, bottom, left
+    margin-top: 50px;
+    margin-right: 120px;
+    margin-bottom: 100px;
+    margin-left: 30px;
+    */
+    text-align: justify;
+}
+
+button.submit {
+    font-size: 30px;
+    background-color: cadetblue;
+    color: beige;
+    border-radius: 20px;
+    border: none;
+    /*border-bottom: none;*/
+    /*border-top: 3px dashed red;*/
+    padding: 3px 15px 15px;
+    /*
+    padding-top: 3px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px
+    */
+}
+
+input {
+    /*border: 1px dotted blue;*/
+    border: 3px dashed red
+}
+
+.heading {
+    font-size: 30px;
+}
+
+ul {
+    list-style-type: georgian; /* circle, square, upper-roman, lower-latin, upper-alpha, lower-greek */
+}
+
+li {
+    color: #FF4081;
+    background-color: #2196F3;
+    border: 5px solid white;
+}
+
+.my-select {
+    border: 1px dotted deeppink;
+    border-radius: 15px;
+}
+
+img {
+    width: 90%;
+    border-radius: 15px;
+    border: 10px solid blue;
+}

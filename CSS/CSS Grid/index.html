@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Grid</title>
+    <style>
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 85% 15%;
+            /*grid-template-rows: 50% 25% 25%;*/
+            /*grid-column-gap: .5em;*/
+            /*grid-row-gap: .5rem;*/
+            grid-gap: .5em;
+        }
+
+        .wrapper > div {
+            background: #eee;
+            padding: 1em;
+        }
+
+        .wrapper > div:nth-child(odd) {
+            background: #ddd;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem explicabo harum maxime nemo possimus repudiandae rerum velit. A beatae consequuntur debitis dolor eius eos ex illum libero maiores nisi odit pariatur provident quae quasi quia quibusdam quis recusandae sequi similique sint ut vel, velit vitae! Esse facilis hic illum nesciunt? A aliquid at autem consectetur dolore eius explicabo facere id minus nam natus nihil nobis non odit officia placeat, quaerat, recusandae repellat saepe sint soluta, ut voluptatum? Expedita, nesciunt quisquam!</div>
+        <div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem modi odit officiis, placeat quas quisquam quos. Aspernatur atque deserunt eum expedita labore minus nesciunt perferendis quae quasi, qui quibusdam rerum?</div>
+        <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem explicabo harum maxime nemo possimus repudiandae rerum velit. A beatae consequuntur debitis dolor eius eos ex illum libero maiores nisi odit pariatur provident quae quasi quia quibusdam quis recusandae sequi similique sint ut vel, velit vitae! Esse facilis hic illum nesciunt? A aliquid at autem consectetur dolore eius explicabo facere id minus nam natus nihil nobis non odit officia placeat, quaerat, recusandae repellat saepe sint soluta, ut voluptatum? Expedita, nesciunt quisquam!</div>
+        <div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem modi odit officiis, placeat quas quisquam quos. Aspernatur atque deserunt eum expedita labore minus nesciunt perferendis quae quasi, qui quibusdam rerum?</div>
+        <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem explicabo harum maxime nemo possimus repudiandae rerum velit. A beatae consequuntur debitis dolor eius eos ex illum libero maiores nisi odit pariatur provident quae quasi quia quibusdam quis recusandae sequi similique sint ut vel, velit vitae! Esse facilis hic illum nesciunt? A aliquid at autem consectetur dolore eius explicabo facere id minus nam natus nihil nobis non odit officia placeat, quaerat, recusandae repellat saepe sint soluta, ut voluptatum? Expedita, nesciunt quisquam!</div>
+        <div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem modi odit officiis, placeat quas quisquam quos. Aspernatur atque deserunt eum expedita labore minus nesciunt perferendis quae quasi, qui quibusdam rerum?</div>
+        <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem explicabo harum maxime nemo possimus repudiandae rerum velit. A beatae consequuntur debitis dolor eius eos ex illum libero maiores nisi odit pariatur provident quae quasi quia quibusdam quis recusandae sequi similique sint ut vel, velit vitae! Esse facilis hic illum nesciunt? A aliquid at autem consectetur dolore eius explicabo facere id minus nam natus nihil nobis non odit officia placeat, quaerat, recusandae repellat saepe sint soluta, ut voluptatum? Expedita, nesciunt quisquam!</div>
+        <div class="sidebar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem modi odit officiis, placeat quas quisquam quos. Aspernatur atque deserunt eum expedita labore minus nesciunt perferendis quae quasi, qui quibusdam rerum?</div>
+
+    </div>
+
+
+</body>
+</html>
+
+<!--
+Flexbox: | | | (one dimension)
+CSS Grids: right and down (two dimension)
+-->

@@ -1,0 +1,252 @@
+/* Selectors' significance:
+ 1) Tag name
+ 2) Class name
+ 3) ID
+ 4) Inline style (style="color: red")
+ */
+
+h1 {
+    color: #0000ff;
+    /*transition: color, padding, font-size, 0.5s ease-in-out 0.3s;*/
+    /*-webkit-transition: color, padding, font-size, 0.5s ease-in-out 0.3s;*/
+    /*-moz-transition: color, padding, font-size, 0.5s ease-in-out 0.3s;*/
+    /*-o-transition: color, padding, font-size, 0.5s ease-in-out 0.3s;*/
+    /* Safari: -webkit- */
+    /* Mozilla: -moz- */
+    /* Opera: -o- */
+    transition: color, padding, font-size, 0.5s ease-in-out;
+}
+
+h1:hover {
+    color: #8181ff;
+    padding: 20px 20px;
+    font-size: 70px;
+    /*transform: translate(-30px, 50px);*/
+    /*transform: scale(2.5)*/
+    /*transform: rotate(360deg);*/
+    /*transform: skewX(-25deg);*/
+    /*transform: skewY(10deg);*/
+    transform: matrix(1, 0.45, 0, 1, 100, 50)
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+/*-----------------------------------*/
+
+/*li:first-child {*/
+/*    color: blueviolet;*/
+/*}*/
+
+/*li:last-child {*/
+/*    color: slateblue;*/
+/*}*/
+
+/*Every third element will be blue*/
+/*li:nth-child(3) {*/
+/*    color: blue;*/
+/*}*/
+
+/*Will be applied, if only one element is present*/
+/*li:only-child {*/
+/*    color: purple*/
+/*}*/
+
+li:nth-child(odd) {
+    color: red;
+}
+
+li:nth-child(even) {
+    color: darkred;
+}
+
+/*-----------------------------------*/
+
+/* Before you clicked and after you clicked link difference */
+
+/* Unvisited link */
+#website:link {
+    color: red;
+}
+
+/* After visit */
+#website:visited {
+    color: deeppink;
+}
+
+/*-----------------------------------*/
+
+.hobbies > li {
+    font-size: 25px;
+}
+
+.languages .dialects li {
+    color: darkgreen;
+}
+
+/*-----------------------------------*/
+
+a[href="https://google.com"] {
+    font-weight: bold;
+}
+
+/* All images, which src starts with `http` */
+img[src^="http"] {
+    width: auto;
+}
+
+/* All images, which have `.png` extension (ending) */
+img[src$=".png"] {
+    border: 1px solid black;
+}
+
+/* All images, which contain `card` in their src */
+img[src*="card"] {
+    border: 5px dotted pink;
+}
+
+/*-----------------------------------*/
+
+body {
+    /* Last one is opacity (0-1) */
+    background: rgba(50, 50, 50, .3)
+}
+
+.background {
+    background: url("https://ak.picdn.net/shutterstock/videos/6854599/thumb/1.jpg") no-repeat;
+    /*background-size: 100% 100%;*/
+    /*background-image: url("https://ak.picdn.net/shutterstock/videos/6854599/thumb/1.jpg")*/
+    /*background-color: rgb(186,133, 10)*/
+    /*background-size: 10px 10px;*/
+    /*width: 50%;*/
+    background-size: cover;
+}
+
+/*-----------------------------------*/
+
+.gradient-1 {
+    height: 500px;
+    width: 100%;
+    /*background-color: rgba(30, 100, 30, 0.8);*/
+    background: linear-gradient(to right, darkblue, cornflowerblue, cadetblue, blueviolet);
+}
+
+/* Diagonal gradient */
+.gradient-2 {
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(to bottom left, rgba(200, 30, 100, 0.1), rgba(200, 30, 100, 1));
+}
+
+/* Gradient using degrees (0 degrees = top, positive goes to right, negative goes to left) */
+.gradient-3 {
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(-30deg, white, black);
+}
+
+/* Radial gradients. Percentage order must be ascending */
+.gradient-4 {
+    height: 500px;
+    width: 100%;
+    background: radial-gradient(circle, yellow 10%, white 20%, cornflowerblue 70%);
+}
+
+/*-----------------------------------*/
+
+.units {
+    font-size: 5vw;  /* in = inches; mm, cm, pt, pc */
+    /* em - relative to default font-size (2em = twice larger) */
+    /* 1vh = 1% of view height
+        1vw = 1% of view width */
+}
+
+/*-----------------------------------*/
+
+a {
+    /*text-decoration: none;*/
+    text-decoration: overline; /* line-through, overline, underline */
+    text-transform: uppercase;
+    text-align: center; /* justify, center, right, left */
+}
+
+/*-----------------------------------*/
+
+h1 {
+    font-weight: 300;
+    font-style: italic; /* oblique */
+    font-family: sans-serif; /* serif by default, monospace - every letter has identical width */
+    border: 10px double black;
+
+    float: right;
+    margin-left: 1em;
+    margin-bottom: .5em;
+}
+
+/*-----------------------------------*/
+
+.closed {
+    display: none
+}
+
+p {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+/*-----------------------------------*/
+
+.flex-container {
+    height: 400px;
+
+    display: flex;
+    flex-direction: row; /* (row, row-reverse, column-reverse) */
+    flex-wrap: wrap; /* (nowrap, wrap-reverse) */
+    justify-content: space-around; /* (center, flex-end, space-between) */
+    align-items: flex-end; /* (center, flex-start, stretch) */
+}
+
+.flex-item {
+    margin: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 50px;
+    text-align: center;
+    font-size: 25px;
+    background-color: blueviolet;
+    border: 1px solid blue;
+    color: beige;
+
+    line-height: 100px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100px;
+}
+
+/*-----------------------------------*/
+
+@keyframes black-to-blue {
+    0% {border: 1px solid black; transform: translate(0px, 0px)}
+    25% {border: 3px solid #000039; transform: translate(5px, 5px)}
+    50% {border: 5px solid #00008d; transform: translate(10px, 10px)}
+    75% {border: 7px solid #0000c2; transform: translate(15px, 15px)}
+    100% {border: 9px solid #0000ee; transform: translate(20px, 20px)}
+
+    /*from {border: 5px solid black;}*/
+    /*to {border: 10px solid blue;}*/
+}
+
+img.game {
+    /*animation-name: black-to-blue;*/
+    /*animation-duration: 2s;*/
+    /*animation-timing-function: ease-in;*/
+    /*animation-delay: 0.5s; !* (negative values also can be used) *!*/
+    /*animation-iteration-count: infinite; !* numeric values *!*/
+    /*animation-direction: alternate; !* reverse, alternate-reverse *!*/
+
+    animation: black-to-blue 3s ease-in 0.5s infinite alternate;
+    -webkit-animation: black-to-blue 3s ease-in 0.5s infinite alternate;
+    -moz-animation: black-to-blue 3s ease-in 0.5s infinite alternate;
+    -o-animation: black-to-blue 3s ease-in 0.5s infinite alternate;
+}
