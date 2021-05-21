@@ -65,6 +65,11 @@ input[type=file] {
     overflow: hidden;
 }
 
+.preview-img.removing {
+    transform: scale(0);
+    transition: transform .33s;
+}
+
 .preview-img:hover .preview-remove {
     opacity: 1;
 }
@@ -107,6 +112,18 @@ input[type=file] {
     justify-content: space-between;
     padding: 0 5px;
     transition: bottom .22s;
+}
+
+.preview-info-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: mediumspringgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width .22s;
 }
 
 /*# sourceMappingURL=/theme.f91554c8.css.map */
